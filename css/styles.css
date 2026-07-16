@@ -979,6 +979,28 @@ select:hover {
   color: #fff;
 }
 
+.cta-volver-inicio {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--green-1);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cta-volver-inicio::after {
+  content: "→";
+  font-size: 1em;
+  line-height: 1;
+  text-decoration: none;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
   .hero-grid {

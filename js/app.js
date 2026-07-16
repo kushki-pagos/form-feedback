@@ -554,6 +554,10 @@ document.getElementById("btn-enviar").addEventListener("click", () => {
   showView("view-gracias");
 });
 
+document.getElementById("btn-volver-inicio").addEventListener("click", () => {
+  showView("view-bienvenida");
+});
+
 // ── INICIALIZACIÓN ──
 
 populateCategoriaSelect();
