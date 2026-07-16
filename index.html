@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ronda de feedback — Nueva web Kushki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Página 1 — Bienvenida -->
+      <section class="view view--active" id="view-bienvenida">
+        <div class="hero">
+          <img class="hero-pattern" src="images/trama-fondo.png" alt="" aria-hidden="true" />
+          <div class="hero-grid">
+            <div class="hero-left">
+              <img class="hero-logo-img" src="images/logos-kushki/LogoVH.png" alt="Kushki" />
+              <h1><span class="hero-title-accent">Ronda de feedback</span><br />Nueva web</h1>
+            </div>
+            <div class="hero-right">
+              <p class="hero-intro">
+                Gracias por participar en el proceso de revisión del nuevo sitio web de Kushki. Tu
+                opinión es fundamental para asegurarnos de que la información presentada sea precisa,
+                relevante y alineada con la visión de la compañía.
+              </p>
+              <div>
+                <p style="font-weight: 600; margin-bottom: 8px">Por favor ten en cuenta:</p>
+                <ul>
+                  <li>Esta revisión está enfocada exclusivamente en el contenido e información de cada página.</li>
+                  <li>
+                    El diseño y elementos visuales del sitio han pasado por un proceso de revisión
+                    especializado, por lo que en este formulario nos enfocaremos únicamente en el
+                    contenido. ¡Gracias por entender!
+                  </li>
+                  <li>
+                    Si vas a revisar páginas de diferentes categorías, deberás diligenciar el
+                    formulario nuevamente por cada categoría.
+                  </li>
+                </ul>
+              </div>
+              <p class="hero-final-note">
+                *Todos los ajustes serán revisados por el equipo antes de ser implementados.
+              </p>
+              <button class="kbtn kbtn-primary kbtn-lg" id="btn-comenzar" type="button">
+                Comenzar revisión
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 2 — Identificación y selección -->
+      <section class="view" id="view-identificacion">
+        <div class="form-shell">
+          <div class="form-topbar">
+            <img class="topbar-logo" src="images/logos-kushki/Logo%20AH.png" alt="Kushki" />
+            <div class="step-indicator" id="step-indicator"></div>
+          </div>
+          <div class="form-body">
+            <div class="form-card">
+              <span class="eyebrow">Paso 1 de 4</span>
+              <h2>Identificación y selección</h2>
+              <p class="form-description">
+                Cuéntanos quién eres y qué páginas vas a revisar.
+              </p>
+
+              <div class="form-section">
+                <div class="field-row">
+                  <div class="field" id="field-nombre">
+                    <label for="input-nombre">Nombre</label>
+                    <input type="text" id="input-nombre" autocomplete="name" />
+                    <p class="field-error">Por favor ingresa tu nombre.</p>
+                  </div>
+
+                  <div class="field" id="field-cargo">
+                    <label for="input-cargo">Cargo</label>
+                    <input type="text" id="input-cargo" autocomplete="organization-title" />
+                    <p class="field-error">Por favor ingresa tu cargo.</p>
+                  </div>
+                </div>
+
+                <div class="field" id="field-categoria">
+                  <label for="categoria-trigger">Categoría</label>
+                  <div class="custom-select" id="categoria-select-wrap">
+                    <button type="button" class="custom-select-trigger" id="categoria-trigger">
+                      <span class="custom-select-value">Selecciona una categoría</span>
+                    </button>
+                    <ul class="custom-select-options"></ul>
+                    <select id="select-categoria" class="native-select-hidden" tabindex="-1" aria-hidden="true">
+                      <option value="" selected disabled>Selecciona una categoría</option>
+                    </select>
+                  </div>
+                  <p class="field-error">Por favor selecciona una categoría.</p>
+                </div>
+
+                <div class="field" id="field-paginas">
+                  <label>Páginas a revisar</label>
+                  <div class="pages-group" id="pages-group">
+                    <p class="field-hint">Selecciona primero una categoría para ver sus páginas.</p>
+                  </div>
+                  <p class="field-error">Selecciona al menos una página.</p>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <span></span>
+                <button class="kbtn kbtn-primary" id="btn-id-siguiente" type="button">Siguiente</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 3 — Preguntas de revisión -->
+      <section class="view" id="view-preguntas">
+        <div class="form-shell">
+          <div class="form-topbar">
+            <img class="topbar-logo" src="images/logos-kushki/Logo%20AH.png" alt="Kushki" />
+            <div class="step-indicator" id="step-indicator-2"></div>
+          </div>
+          <div class="form-body">
+            <div class="form-card">
+              <span class="eyebrow">Paso 2 de 4</span>
+              <h2>Preguntas de revisión</h2>
+              <p class="form-description">
+                Responde las siguientes preguntas basándote en el contenido de las páginas que
+                seleccionaste. Si alguna respuesta es "No" o "Parcialmente", podrás detallar los
+                ajustes en la siguiente sección.
+              </p>
+
+              <div class="form-section" id="questions-container"></div>
+
+              <div class="form-actions">
+                <button class="kbtn-back" id="btn-preguntas-atras" type="button">Atrás</button>
+                <button class="kbtn kbtn-primary" id="btn-preguntas-siguiente" type="button">
+                  Siguiente
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 4 — Registro de ajustes (condicional) -->
+      <section class="view" id="view-ajustes">
+        <div class="form-shell">
+          <div class="form-topbar">
+            <img class="topbar-logo" src="images/logos-kushki/Logo%20AH.png" alt="Kushki" />
+            <div class="step-indicator" id="step-indicator-3"></div>
+          </div>
+          <div class="form-body">
+            <div class="form-card">
+              <span class="eyebrow">Paso 3 de 4</span>
+              <h2>Registro de ajustes</h2>
+              <p class="form-description">
+                Cada ajuste debe registrarse de forma individual. Recuerda ser específico y
+                dimensionar los cambios — modificaciones extensas pueden impactar los tiempos de
+                salida del sitio. El equipo revisará cada ajuste y se pondrá en contacto si es
+                necesario.
+              </p>
+
+              <div class="form-section">
+                <div class="ajustes-list" id="ajustes-list"></div>
+
+                <div class="field" id="field-ajuste-pagina">
+                  <label for="ajuste-pagina-trigger">¿A qué página corresponde?</label>
+                  <div class="custom-select" id="ajuste-pagina-select-wrap">
+                    <button type="button" class="custom-select-trigger" id="ajuste-pagina-trigger">
+                      <span class="custom-select-value">Selecciona una página</span>
+                    </button>
+                    <ul class="custom-select-options"></ul>
+                    <select id="select-ajuste-pagina" class="native-select-hidden" tabindex="-1" aria-hidden="true">
+                      <option value="" selected disabled>Selecciona una página</option>
+                    </select>
+                  </div>
+                  <p class="field-error">Selecciona la página del ajuste.</p>
+                </div>
+
+                <div class="field" id="field-ajuste-desc">
+                  <label for="textarea-ajuste-desc">Describe el ajuste</label>
+                  <textarea id="textarea-ajuste-desc"></textarea>
+                  <p class="field-error">Describe el ajuste antes de continuar.</p>
+                </div>
+
+                <div class="field" id="field-ajuste-captura">
+                  <label for="input-ajuste-captura">Captura de pantalla</label>
+                  <div class="file-input-wrap">
+                    <input type="file" id="input-ajuste-captura" accept="image/*" class="file-input-hidden" />
+                    <label for="input-ajuste-captura" class="kbtn kbtn-secondary kbtn-file">Seleccionar captura</label>
+                    <span class="file-name" id="ajuste-captura-status">Ningún archivo seleccionado</span>
+                    <button class="cta-add-ajuste" id="btn-agregar-ajuste" type="button">Agregar otro ajuste</button>
+                  </div>
+                  <p class="field-error">Selecciona una captura de pantalla del ajuste.</p>
+                </div>
+
+                <p class="field-error" id="ajustes-list-error" style="display: none; margin-top: 8px">
+                  Agrega al menos un ajuste antes de continuar.
+                </p>
+              </div>
+
+              <div class="form-actions">
+                <button class="kbtn-back" id="btn-ajustes-atras" type="button">Atrás</button>
+                <button class="kbtn kbtn-primary" id="btn-finalizar-ajustes" type="button">
+                  Finalizar ajustes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Página 5 — Cierre -->
+      <section class="view" id="view-cierre">
+        <div class="form-shell">
+          <div class="form-topbar">
+            <img class="topbar-logo" src="images/logos-kushki/Logo%20AH.png" alt="Kushki" />
+            <div class="step-indicator" id="step-indicator-4"></div>
+          </div>
+          <div class="form-body">
+            <div class="form-card">
+              <span class="eyebrow">Paso 4 de 4</span>
+              <h2>Para finalizar</h2>
+
+              <div class="form-section">
+                <div class="field">
+                  <label for="textarea-comentario-final">
+                    ¿Tienes algún comentario, duda o sugerencia adicional? (opcional)
+                  </label>
+                  <textarea id="textarea-comentario-final"></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="kbtn-back" id="btn-cierre-atras" type="button">Atrás</button>
+                <button class="kbtn kbtn-primary" id="btn-enviar" type="button">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vista final — Gracias -->
+      <section class="view" id="view-gracias">
+        <div class="hero">
+          <img class="hero-pattern" src="images/trama-fondo.png" alt="" aria-hidden="true" />
+          <div class="gracias-hero-content">
+            <img class="hero-logo-img gracias-logo" src="images/logos-kushki/LogoVH.png" alt="Kushki" />
+            <div class="gracias-hero-card">
+              <h2>¡Gracias por tu tiempo y contribución!</h2>
+              <p>
+                El equipo revisará todos los comentarios recibidos y se pondrá en contacto si es
+                necesario. 🙌
+              </p>
+            </div>
+            <p class="gracias-tagline">
+              <span class="hero-title-accent">Ronda de feedback</span><br /><span class="gracias-tagline-sub">Nueva web</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
