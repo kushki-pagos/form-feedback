@@ -402,10 +402,12 @@ function buildPayload() {
     timestamp: new Date().toISOString(),
     nombre: state.nombre,
     cargo: state.cargo,
-    categoriaSeleccionada: state.categoria,
-    paginasSeleccionadas: state.paginasSeleccionadas,
-    respuestas: state.respuestas,
-    tieneAjustes: state.respuestas.q4 !== "No",
+    categoria: state.categoria,
+    paginas: state.paginasSeleccionadas,
+    pregunta1: state.respuestas.q1,
+    pregunta2: state.respuestas.q2,
+    pregunta3: state.respuestas.q3,
+    pregunta4: state.respuestas.q4,
     ajustes: state.ajustes.map((a) => ({
       pagina: a.pagina,
       categoria: a.categoria,
@@ -419,18 +421,23 @@ function buildPayload() {
           }
         : null,
     })),
-    comentarioFinal: state.comentarioFinal,
+    comentarioAdicional: state.comentarioFinal,
   };
 }
 
 async function submitToSheet(payload) {
+  console.log("[Kushki feedback] Payload a enviar:", payload);
+  console.log("[Kushki feedback] Payload JSON:", JSON.stringify(payload));
+
   if (!SHEET_ENDPOINT_URL || SHEET_ENDPOINT_URL.startsWith("REEMPLAZAR")) {
-    console.warn("[Kushki feedback] SHEET_ENDPOINT_URL no configurado todavía. Payload listo para enviar:", payload);
+    console.warn("[Kushki feedback] SHEET_ENDPOINT_URL no configurado todavía.");
     return;
   }
   try {
     // Apps Script Web Apps no responden con headers CORS por defecto; se usa
     // 'no-cors' + text/plain para evitar el preflight y evitar bloquear el envío.
+    // El script igual puede hacer JSON.parse(e.postData.contents) sin importar
+    // este header, porque el body ya es JSON válido.
     await fetch(SHEET_ENDPOINT_URL, {
       method: "POST",
       mode: "no-cors",
