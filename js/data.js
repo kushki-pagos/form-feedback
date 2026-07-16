@@ -174,4 +174,4 @@ const REVIEW_QUESTIONS = [
 
 const ANSWER_OPTIONS = ["Sí", "No", "Parcialmente"];
 
-const SHEET_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxAm85MvbxPDmj28iPu194Fxh8lSyeT3gfwZe_fd5_fuWp6Ys6TCz0ZATBvB4HIG2cbMw/exec";
+const SHEET_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbw505NMArf858Nelwe4vpNcVQBnSahJlAUeNQDHPELP4D9jhwalqIQJeALV2zGjMaUPAA/exec";
