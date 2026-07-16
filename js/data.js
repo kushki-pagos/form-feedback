@@ -177,6 +177,4 @@ const ANSWER_OPTIONS = ["Sí", "No", "Parcialmente"];
 // ID de la carpeta de Google Drive donde se guardan las capturas de pantalla.
 const DRIVE_FOLDER_ID = "1fgVUe4r8mR2SUTCFUu1EJZJErZa8A2wG";
 
-// Placeholder: reemplazar por la URL real del Web App de Google Apps Script
-// cuando el Sheet esté listo (Extensiones > Apps Script > Implementar > Aplicación web).
-const SHEET_ENDPOINT_URL = "REEMPLAZAR_CON_URL_DEL_APPS_SCRIPT";
+const SHEET_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxAm85MvbxPDmj28iPu194Fxh8lSyeT3gfwZe_fd5_fuWp6Ys6TCz0ZATBvB4HIG2cbMw/exec";
