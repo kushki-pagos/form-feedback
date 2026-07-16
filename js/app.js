@@ -405,17 +405,13 @@ function buildPayload() {
     categoriaSeleccionada: state.categoria,
     paginasSeleccionadas: state.paginasSeleccionadas,
     respuestas: state.respuestas,
+    // TEMPORAL: no se envía la captura (base64) al script mientras se resuelve
+    // el problema de subida a Drive del lado del Apps Script.
     ajustes: state.ajustes.map((a) => ({
       pagina: a.pagina,
       categoria: a.categoria,
       descripcion: a.descripcion,
-      captura: a.captura
-        ? {
-            fileName: a.captura.fileName,
-            mimeType: a.captura.mimeType,
-            base64: a.captura.base64,
-          }
-        : null,
+      captura: null,
     })),
     comentarioFinal: state.comentarioFinal,
   };
