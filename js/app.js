@@ -322,7 +322,7 @@ function populateAjustePaginaSelect() {
 function readFileAsBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(",")[1]);
+    reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
@@ -417,7 +417,6 @@ function buildPayload() {
             fileName: a.captura.fileName,
             mimeType: a.captura.mimeType,
             base64: a.captura.base64,
-            driveFolderId: DRIVE_FOLDER_ID,
           }
         : null,
     })),
