@@ -990,15 +990,17 @@ select:hover {
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 14px;
-  text-decoration: underline;
   cursor: pointer;
+}
+
+.cta-volver-inicio-text {
+  text-decoration: underline;
 }
 
 .cta-volver-inicio::after {
   content: "→";
   font-size: 1em;
   line-height: 1;
-  text-decoration: none;
 }
 
 /* ── RESPONSIVE ── */
