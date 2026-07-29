@@ -322,7 +322,7 @@ function populateAjustePaginaSelect() {
 function readFileAsBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(",")[1]);
+    reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
@@ -401,12 +401,9 @@ function buildPayload() {
     timestamp: new Date().toISOString(),
     nombre: state.nombre,
     cargo: state.cargo,
-    categoria: state.categoria,
-    paginas: state.paginasSeleccionadas,
-    pregunta1: state.respuestas.q1,
-    pregunta2: state.respuestas.q2,
-    pregunta3: state.respuestas.q3,
-    pregunta4: state.respuestas.q4,
+    categoriaSeleccionada: state.categoria,
+    paginasSeleccionadas: state.paginasSeleccionadas,
+    respuestas: state.respuestas,
     ajustes: state.ajustes.map((a) => ({
       pagina: a.pagina,
       categoria: a.categoria,
@@ -416,16 +413,26 @@ function buildPayload() {
             fileName: a.captura.fileName,
             mimeType: a.captura.mimeType,
             base64: a.captura.base64,
-            driveFolderId: DRIVE_FOLDER_ID,
           }
         : null,
     })),
-    comentarioAdicional: state.comentarioFinal,
+    comentarioFinal: state.comentarioFinal,
   };
 }
 
 async function submitToSheet(payload) {
   console.log("[Kushki feedback] Payload a enviar:", payload);
+  payload.ajustes.forEach((a, i) => {
+    console.log(
+      `[Kushki feedback] ajustes[${i}].captura ->`,
+      "typeof:",
+      typeof a.captura,
+      "| keys:",
+      a.captura ? Object.keys(a.captura) : null,
+      "| valor:",
+      a.captura
+    );
+  });
   console.log("[Kushki feedback] Payload JSON:", JSON.stringify(payload));
 
   if (!SHEET_ENDPOINT_URL || SHEET_ENDPOINT_URL.startsWith("REEMPLAZAR")) {
