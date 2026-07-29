@@ -349,8 +349,7 @@ function tryCollectAjusteDraft() {
   if (!pagina) valid = false;
   setFieldError("field-ajuste-desc", !descripcion);
   if (!descripcion) valid = false;
-  setFieldError("field-ajuste-captura", !draftCaptura);
-  if (!draftCaptura) valid = false;
+  setFieldError("field-ajuste-captura", false);
 
   if (!valid) return null;
 
