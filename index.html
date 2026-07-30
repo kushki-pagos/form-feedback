@@ -193,7 +193,18 @@
                   <div class="file-input-wrap">
                     <input type="file" id="input-ajuste-captura" accept="image/*" class="file-input-hidden" />
                     <label for="input-ajuste-captura" class="kbtn kbtn-secondary kbtn-file">Seleccionar captura</label>
-                    <span class="file-name" id="ajuste-captura-status">Ningún archivo seleccionado</span>
+                    <span class="file-name-group">
+                      <span class="file-name" id="ajuste-captura-status">Ningún archivo seleccionado</span>
+                      <button
+                        class="file-remove-btn"
+                        id="ajuste-captura-remove"
+                        type="button"
+                        aria-label="Quitar captura seleccionada"
+                        style="display: none"
+                      >
+                        ×
+                      </button>
+                    </span>
                     <button class="cta-add-ajuste" id="btn-agregar-ajuste" type="button">Agregar otro ajuste</button>
                   </div>
                   <p class="field-error">Selecciona una captura de pantalla del ajuste.</p>

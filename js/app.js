@@ -333,6 +333,7 @@ function clearAjusteDraftFields() {
   document.getElementById("textarea-ajuste-desc").value = "";
   document.getElementById("input-ajuste-captura").value = "";
   document.getElementById("ajuste-captura-status").textContent = "Ningún archivo seleccionado";
+  document.getElementById("ajuste-captura-remove").style.display = "none";
   draftCaptura = null;
   setFieldError("field-ajuste-pagina", false);
   setFieldError("field-ajuste-desc", false);
@@ -503,15 +504,25 @@ document.getElementById("btn-preguntas-siguiente").addEventListener("click", () 
 document.getElementById("input-ajuste-captura").addEventListener("change", async (e) => {
   const file = e.target.files[0];
   const statusEl = document.getElementById("ajuste-captura-status");
+  const removeBtn = document.getElementById("ajuste-captura-remove");
   if (!file) {
     draftCaptura = null;
     statusEl.textContent = "Ningún archivo seleccionado";
+    removeBtn.style.display = "none";
     return;
   }
   const base64 = await readFileAsBase64(file);
   draftCaptura = { fileName: file.name, mimeType: file.type, base64 };
   statusEl.textContent = `Archivo seleccionado: ${file.name}`;
+  removeBtn.style.display = "inline-flex";
   setFieldError("field-ajuste-captura", false);
+});
+
+document.getElementById("ajuste-captura-remove").addEventListener("click", () => {
+  draftCaptura = null;
+  document.getElementById("input-ajuste-captura").value = "";
+  document.getElementById("ajuste-captura-status").textContent = "Ningún archivo seleccionado";
+  document.getElementById("ajuste-captura-remove").style.display = "none";
 });
 
 document.getElementById("btn-agregar-ajuste").addEventListener("click", () => {

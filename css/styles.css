@@ -913,6 +913,40 @@ select:hover {
   color: var(--dark-gray-2);
 }
 
+.file-name-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  max-width: 100%;
+}
+
+.file-name-group .file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-remove-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--light-gray-4);
+  color: var(--dark-gray-3);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.file-remove-btn:hover {
+  background: var(--dark-gray-1);
+  color: var(--dark-gray-4);
+}
+
 /* ── ACCIONES DE FORMULARIO ── */
 .form-actions {
   display: flex;
